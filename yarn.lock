@@ -299,6 +299,11 @@
     "@vue/compiler-dom" "3.4.27"
     "@vue/shared" "3.4.27"
 
+"@vue/devtools-api@^6.5.1":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.6.2.tgz#a5a17377ca810c7f0153232ff1dcfa25bd5694be"
+  integrity sha512-134clD8u7cBBXdmBbXI282gHGF7T/eAbD/G7mAK2llQF62IbI4ny28IVamZVMoJSvfImC2Xxnj732hXkJvUj6g==
+
 "@vue/reactivity@3.4.27":
   version "3.4.27"
   resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.4.27.tgz#6ece72331bf719953f5eaa95ec60b2b8d49e3791"
@@ -756,6 +761,13 @@ vue-disqus@^5.1.0:
   integrity sha512-3QInKK2K9cXCjOu0wm7FkA701qDoUX1CjLSkpHg1k5z3HicjJtWrbOJR11bKPPMwDOvDM47+LeSiSC+TOz1Hqw==
   dependencies:
     vue "^3.0.5"
+
+vue-router@4:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.3.2.tgz#08096c7765dacc6832f58e35f7a081a8b34116a7"
+  integrity sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==
+  dependencies:
+    "@vue/devtools-api" "^6.5.1"
 
 vue@^3.0.5, vue@^3.4.0:
   version "3.4.27"

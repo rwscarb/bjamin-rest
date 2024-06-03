@@ -12,7 +12,6 @@
 
       <div class="text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to a tribute to</div>
-
         <h1 class="text-h2 font-weight-bold">Benjamin Johnson</h1>
       </div>
 
@@ -20,6 +19,7 @@
 
       <v-row v-show="selectedView === 'bio'">
         <v-col cols="12" v-for="event in timeline" :key="event.id">
+
           <v-card
             class="py-4"
             color="primary"
@@ -41,6 +41,7 @@
               persistent
             />
           </v-card>
+
           <div v-if="selectedEvent === event.id" style="padding-top: 1em">
             <template v-for="quote in event.quotes">
               <blockquote><p v-html="quote.content"></p></blockquote>
@@ -48,37 +49,15 @@
             </template>
             <div v-if="!event.quotes" v-html="event.content"></div>
           </div>
+
         </v-col>
       </v-row>
 
-      <v-row v-show="selectedView === 'photos'">
-        <v-col
-          v-for="n in 18"
-          :key="n"
-          class="d-flex child-flex"
-          cols="4"
-        >
-          <v-img
-            :src="`https://bjamin.rest/img/grid/${n.toString().padStart(3, '0')}.jpg`"
-            class="bg-grey-lighten-2"
-            aspect-ratio="1"
-            cover
-          >
-            <template v-slot:placeholder>
-              <v-row
-                align="center"
-                class="fill-height ma-0"
-                justify="center"
-              >
-                <v-progress-circular
-                  color="grey-lighten-5"
-                  indeterminate
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
-        </v-col>
-      </v-row>
+      <Photos v-show="selectedView === 'photos'"
+              :num-images="18"
+              :carousel-images="carousel"
+              :image-handler="viewGridImage"
+      />
 
       <v-row v-show="selectedView === 'music'">
         <v-col cols="12">
@@ -92,9 +71,9 @@
         </v-col>
       </v-row>
 
-      <section aria-labelledby="guest-book" v-show="selectedView === 'guest'">
+      <section v-show="selectedView === 'guest'">
         <h2 id="comment">Guest Book</h2>
-        <Disqus :lazy="false" />
+        <Disqus />
       </section>
 
       <FooterNav @select="selectedView = $event"/>
@@ -105,6 +84,7 @@
 
 <script type="text/javascript">
 import FooterNav from "@/components/FooterNav.vue";
+import Photos from "@/components/Photos.vue";
 
 export default {
   data() {
@@ -120,6 +100,16 @@ export default {
     };
   },
   computed: {
+    carousel() {
+      return [
+        "https://bjamin.rest/img/carousel/0009.jpg",
+        "https://bjamin.rest/img/carousel/0008.jpg",
+        "https://bjamin.rest/img/carousel/0002.jpg",
+        "https://bjamin.rest/img/carousel/0001.jpg",
+        "https://bjamin.rest/img/carousel/0006.jpg",
+        "https://bjamin.rest/img/carousel/0007.jpg",
+      ]
+    },
     timeline() {
       return [
         {
@@ -175,10 +165,15 @@ export default {
           ],
         },
       ]
-
+    }
+  },
+  methods: {
+    viewGridImage(href) {
+      window.location.href = href;
     }
   },
   components: {
+    Photos,
     FooterNav
   },
 }
