@@ -12,7 +12,7 @@ const routes = [
   { path: '/videos', component: Videos, name: 'videos' },
   { path: '/music', component: Music, name: 'music' },
   { path: '/guest-book', component: Guest, name: 'guest' },
-  { path: '/*', redirect: 'bio'},
+  { path: '/:pathMatch(.*)*', redirect: '/about' },
 ]
 
 export default createRouter({
