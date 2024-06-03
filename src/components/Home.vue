@@ -51,13 +51,13 @@
 
       <v-row v-show="selectedView === 'photos'">
         <v-col
-          v-for="n in 9"
+          v-for="n in 12"
           :key="n"
           class="d-flex child-flex"
           cols="4"
         >
           <v-img
-            :src="`https://bjamin.rest/img/grid/00${n}.jpg`"
+            :src="`https://bjamin.rest/img/grid/${n.toString().padStart(3, '0')}.jpg`"
             class="bg-grey-lighten-2"
             aspect-ratio="1"
             cover
@@ -150,7 +150,7 @@ export default {
           icon: 'mdi-baby-carriage',
           content: `Ben was born in New Mexico in 1983 by Mary and Lynn Johnson. He was born to an older sister of 6 years, Amanda.
             And while New Mexico would only consist of a short period of his life,
-            he would assimilate parts of the culture and would carry his je ne sais quoi brand to California.
+            he would assimilate parts of the culture and would carry his <i>je ne sais quoi</i> brand to California.
             From the earliest years, he was a philosopher to his core. A true friend with a knack for mischief and an infectious laugh.
           `
         },
@@ -166,11 +166,11 @@ export default {
               author: 'Ryan Scarbery',
               content: `
                 Ben attended Eaton Elementary school in Fresno CA. He introduced himself to me on the first day of
-                kindergarten and we became friends for life. I can still hear his voice whisper "borrow" when it was time
+                kindergarten and we became friends for life. I can still hear his voice whisper "borrow" when it came time
                 to leave from a day of playing. It was my luck that Ben came into my life so early. Ben beamed
                 positivity and everyone saw it and wanted to be around it. He was there for so many of my firsts.
                 From church camp to stoner park, he'd usually have a frisbee in tow and would be down
-                to grab a cup of coffee and ask about your life.`
+                to grab a cup of coffee and ask about life.`
             },
           ],
         },
