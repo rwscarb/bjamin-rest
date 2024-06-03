@@ -8,7 +8,7 @@
     >
       <v-img
         :src="`https://bjamin.rest/img/grid/${n.toString().padStart(3, '0')}.jpg`"
-        @click="imageHandler($event.target.src)"
+        @click="navigateToImg($event.target.src)"
         class="bg-grey-lighten-2"
         style="cursor: pointer"
         aspect-ratio="1"
@@ -45,11 +45,25 @@
 
 <script>
 export default {
-  props: ['numImages', 'imageHandler', 'carouselImages']
+  name: "Photos",
+  computed: {
+    numImages: () => 18,
+    carouselImages: () => [
+      "https://bjamin.rest/img/carousel/0009.jpg",
+      "https://bjamin.rest/img/carousel/0008.jpg",
+      "https://bjamin.rest/img/carousel/0002.jpg",
+      "https://bjamin.rest/img/carousel/0001.jpg",
+      "https://bjamin.rest/img/carousel/0006.jpg",
+      "https://bjamin.rest/img/carousel/0007.jpg",
+    ]
+  },
+  methods: {
+    navigateToImg(href) {
+      window.location.href = href;
+    }
+  }
 }
-
 </script>
-
 
 <style scoped>
 
