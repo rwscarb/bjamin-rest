@@ -41,17 +41,19 @@
               persistent
             />
           </v-card>
-          <template v-if="selectedEvent === event.id" v-for="quote in event.quotes">
-            <blockquote><p v-html="quote.content"></p></blockquote>
-            <div class="float-right">- {{ quote.author }}</div>
-          </template>
-          <div v-if="selectedEvent === event.id && !event.quotes" v-html="event.content"></div>
+          <div v-if="selectedEvent === event.id" style="padding-top: 1em">
+            <template v-for="quote in event.quotes">
+              <blockquote><p v-html="quote.content"></p></blockquote>
+              <div class="float-right">- {{ quote.author }}</div>
+            </template>
+            <div v-if="!event.quotes" v-html="event.content"></div>
+          </div>
         </v-col>
       </v-row>
 
       <v-row v-show="selectedView === 'photos'">
         <v-col
-          v-for="n in 12"
+          v-for="n in 18"
           :key="n"
           class="d-flex child-flex"
           cols="4"
@@ -85,13 +87,8 @@
       </v-row>
 
       <v-row v-show="selectedView === 'videos'">
-        <v-col cols="12">
-          <iframe width="400" height="225" src="https://www.youtube.com/embed/gDOFwcwg6TU?si=Crun16YquVMq_9ko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </v-col>
-      </v-row>
-      <v-row v-show="selectedView === 'videos'">
-        <v-col cols="12">
-          <iframe width="400" height="225" src="https://www.youtube.com/embed/OKIiDVw8OrE?si=x7Z-aOvGshC-Uk_C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <v-col lg="6" v-for="url in videos" :key="url">
+          <iframe width="400" height="225" :src="url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </v-col>
       </v-row>
 
@@ -100,42 +97,26 @@
         <Disqus :lazy="false" />
       </section>
 
-      <v-bottom-navigation>
-        <v-btn value="bio" @click="selectedView = 'bio'">
-          <v-icon>mdi-information</v-icon>
-          <span>About</span>
-        </v-btn>
+      <FooterNav @select="selectedView = $event"/>
 
-        <v-btn value="photos" @click="selectedView = 'photos'">
-          <v-icon>mdi-instagram</v-icon>
-          <span>Photos</span>
-        </v-btn>
-
-        <v-btn value="videos" @click="selectedView = 'videos'">
-          <v-icon>mdi-youtube</v-icon>
-          <span>Videos</span>
-        </v-btn>
-
-        <v-btn value="music" @click="selectedView = 'music'">
-          <v-icon>mdi-spotify</v-icon>
-          <span>Music</span>
-        </v-btn>
-
-        <v-btn value="guest book" @click="selectedView = 'guest'">
-          <v-icon>mdi-comment-bookmark</v-icon>
-          <span>Guest Book</span>
-        </v-btn>
-      </v-bottom-navigation>
     </v-responsive>
   </v-container>
 </template>
 
 <script type="text/javascript">
+import FooterNav from "@/components/FooterNav.vue";
+
 export default {
   data() {
     return {
       selectedView: 'bio',
       selectedEvent: '',
+      videos: [
+        'https://www.youtube.com/embed/OKIiDVw8OrE',
+        'https://www.youtube.com/embed/c2s4HHtOCTM',
+        'https://www.youtube.com/embed/ISw0oRJAb0o',
+        'https://www.youtube.com/embed/gDOFwcwg6TU',
+      ]
     };
   },
   computed: {
@@ -158,7 +139,7 @@ export default {
           id: 'california',
           title: 'California',
           href: '#',
-          subtitle: 'Age 6-30',
+          subtitle: 'Age 6-27',
           image: 'https://bjamin.rest/img/flags/california.png',
           icon: 'mdi-account-school',
           quotes: [
@@ -178,7 +159,7 @@ export default {
           id: 'hawaii',
           title: 'Hawaii',
           href: '#',
-          subtitle: 'Age 31-39',
+          subtitle: 'Age 27-39',
           image: 'https://bjamin.rest/img/flags/hawaii.png',
           icon: 'mdi-surfing',
           quotes: [
@@ -196,6 +177,9 @@ export default {
       ]
 
     }
+  },
+  components: {
+    FooterNav
   },
 }
 </script>
