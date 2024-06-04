@@ -72,6 +72,18 @@
       />
     </v-col>
   </v-row>
+  <v-row>
+    <v-col>
+      <v-card
+        subtitle="Instagram"
+        href="https://www.instagram.com/benjamin.jammin/"
+        prepend-icon="mdi-instagram"
+        image="https://bjamin.rest/img/links/instagram.jpg"
+        height="175"
+        width="175"
+      />
+    </v-col>
+  </v-row>
   <v-row justify="center">
     <v-col>
       <v-card
