@@ -72,6 +72,15 @@
       />
     </v-col>
   </v-row>
+  <v-row justify="center">
+    <v-col>
+      <v-card
+        style="text-align: center"
+        text="Source Code"
+        href="https://github.com/rwscarb/bjamin-rest"
+      ></v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

@@ -8,6 +8,7 @@
         class="mb-4"
         height="350"
         src="@/assets/logo.png"
+        @click="$router.push({name: 'links'})"
       />
 
       <div class="text-center">
