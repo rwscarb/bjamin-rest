@@ -24,6 +24,11 @@
       <v-icon>mdi-comment-bookmark</v-icon>
       <span>Guest Book</span>
     </v-btn>
+
+    <v-btn value="links" @click="$emit('select', 'links')">
+      <v-icon>mdi-link</v-icon>
+      <span>Links</span>
+    </v-btn>
   </v-bottom-navigation>
 </template>
 
