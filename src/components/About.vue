@@ -45,8 +45,8 @@
         title="Camping"
         href="https://www.fresno.gov/parks/campfresno/"
         image="https://bjamin.rest/img/links/camping.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
         />
     </v-col>
     <v-col>
@@ -55,8 +55,8 @@
         style="color: black"
         href="https://www.fs.usda.gov/recarea/sierra/recreation/hiking/recarea/?recid=45894&actid=51"
         image="https://bjamin.rest/img/links/biking.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
     <v-col>
@@ -65,8 +65,8 @@
         style="color: black"
         href="https://www.youtube.com/watch?v=oesiPltzs0I"
         image="https://bjamin.rest/img/links/skateboarding.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
     <v-col>
@@ -74,8 +74,8 @@
         title="Slacklining"
         href="https://en.wikipedia.org/wiki/Slacklining"
         image="https://bjamin.rest/img/links/slack.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
     <v-col>
@@ -84,8 +84,8 @@
         style="color: black"
         href="https://en.wikipedia.org/wiki/Bouldering"
         image="https://bjamin.rest/img/links/bouldering.jpeg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
     <v-col>
@@ -93,8 +93,8 @@
         title="Led Zepplin"
         href="https://www.youtube.com/watch?v=nhVfuacsLDw"
         image="https://bjamin.rest/img/links/led-zepplin.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
     <v-col>
@@ -102,8 +102,8 @@
         title="Monty Python"
         href="https://www.youtube.com/watch?v=RbTaP0_Galg"
         image="https://bjamin.rest/img/links/monty-python.jpg"
-        height="200"
-        width="200"
+        height="175"
+        width="175"
       />
     </v-col>
   </v-row>
