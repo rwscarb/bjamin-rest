@@ -12,6 +12,10 @@ import App from './App.vue'
 
 // Composables
 import { createApp } from 'vue'
+import { Amplify } from "aws-amplify";
+import config from "@/aws-exports";
+
+Amplify.configure(config);
 
 const app = createApp(App)
 

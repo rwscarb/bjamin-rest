@@ -41,6 +41,11 @@ export default defineConfig({
       '.vue',
     ],
   },
+  optimizeDeps: {
+    include: [
+      'aws-amplify',
+    ],
+  },
   server: {
     port: 3000,
   },

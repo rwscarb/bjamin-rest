@@ -1,14 +1,14 @@
 <template>
   <v-row>
     <v-col
-      v-for="n in numImages"
-      :key="n"
+      v-for="src in images"
+      :key="src"
       class="d-flex child-flex"
       cols="4"
     >
       <v-img
-        :src="`https://bjamin.rest/img/grid/${n.toString().padStart(3, '0')}.jpg`"
-        @click="navigateToImg($event.target.src)"
+        :src="src"
+        @click="navigateToImg(src)"
         class="bg-grey-lighten-2"
         style="cursor: pointer"
         aspect-ratio="1"
@@ -31,10 +31,10 @@
   </v-row>
   <v-row>
     <v-col>
-      <v-carousel hide-delimiters progress="secondary">
+      <v-carousel hide-delimiters progress="secondary" v-model="selectedCarouselImage">
         <v-carousel-item
-          v-for="item in carouselImages"
-          :src="item"
+          v-for="src in carouselImages"
+          :src="src"
           cover
         ></v-carousel-item>
       </v-carousel>
@@ -44,23 +44,31 @@
 </template>
 
 <script>
+import { list, getUrl } from 'aws-amplify/storage';
+
 export default {
   name: "Photos",
-  computed: {
-    numImages: () => 18,
-    carouselImages: () => [
-      "https://bjamin.rest/img/carousel/0009.jpg",
-      "https://bjamin.rest/img/carousel/0008.jpg",
-      "https://bjamin.rest/img/carousel/0002.jpg",
-      "https://bjamin.rest/img/carousel/0001.jpg",
-      "https://bjamin.rest/img/carousel/0006.jpg",
-      "https://bjamin.rest/img/carousel/0007.jpg",
-    ]
+  data() {
+    return {
+      images: [],
+      carouselImages: [],
+      selectedCarouselImage: 0,
+    }
   },
   methods: {
     navigateToImg(href) {
       window.location.href = href;
     }
+  },
+  async mounted() {
+    const gridResults = await list({ path: 'public/img/grid/' });
+    const gridImages = await Promise.all(gridResults.items.slice(1).map(async item => getUrl({ path: item.path })));
+    this.images = gridImages.map(x => x.url.href);
+
+    const carouselResults = await list({ path: 'public/img/carousel/' });
+    const carouselImages = await Promise.all(carouselResults.items.map(async item => getUrl({ path: item.path })));
+    this.carouselImages = carouselImages.map(x => x.url.href);
+    this.selectedCarouselImage = Math.floor(Math.random() * this.carouselImages.length);
   }
 }
 </script>

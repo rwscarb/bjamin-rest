@@ -1,0 +1,62 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bjaminrest-dev-96601-authRole",
+      "UnauthRoleArn": "arn:aws:iam::713752064839:role/amplify-bjaminrest-dev-96601-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::713752064839:role/amplify-bjaminrest-dev-96601-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
+      "UnauthRoleName": "amplify-bjaminrest-dev-96601-unauthRole",
+      "StackName": "amplify-bjaminrest-dev-96601",
+      "StackId": "arn:aws:cloudformation:us-west-2:713752064839:stack/amplify-bjaminrest-dev-96601/13bfbaa0-22d7-11ef-9dda-02993f701bb3",
+      "AmplifyAppId": "d6y6squcjq5vm"
+    },
+    "categories": {
+      "auth": {
+        "bjaminresta5fa984b": {}
+      },
+      "function": {
+        "S3Triggere1c83dd8": {
+          "deploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-61683876306b6c525449-build.zip"
+        }
+      },
+      "storage": {
+        "bjaminrest": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bjaminrest-prod-4fe26-authRole",
+      "UnauthRoleArn": "arn:aws:iam::713752064839:role/amplify-bjaminrest-prod-4fe26-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::713752064839:role/amplify-bjaminrest-prod-4fe26-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
+      "UnauthRoleName": "amplify-bjaminrest-prod-4fe26-unauthRole",
+      "StackName": "amplify-bjaminrest-prod-4fe26",
+      "StackId": "arn:aws:cloudformation:us-west-2:713752064839:stack/amplify-bjaminrest-prod-4fe26/56f3bb50-2359-11ef-b67f-0acd4e16071d",
+      "AmplifyAppId": "d6y6squcjq5vm"
+    },
+    "categories": {
+      "auth": {
+        "bjaminresta5fa984b": {}
+      },
+      "function": {
+        "S3Triggere1c83dd8": {
+          "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-6e494e526b6c49663132-build.zip"
+        }
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      },
+      "storage": {
+        "bjaminrest": {}
+      }
+    }
+  }
+}

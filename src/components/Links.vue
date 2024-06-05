@@ -71,8 +71,6 @@
         width="175"
       />
     </v-col>
-  </v-row>
-  <v-row>
     <v-col>
       <v-card
         subtitle="Instagram"
@@ -93,14 +91,62 @@
       ></v-card>
     </v-col>
   </v-row>
+  <v-row v-if="user">
+    <v-col>
+      <v-card
+        style="text-align: center"
+        text="Sign Out"
+        @click="signUserOut"
+      ></v-card>
+    </v-col>
+    <v-col>
+      <v-card
+        style="text-align: center"
+        text="Upload"
+        href="/upload"
+      ></v-card>
+    </v-col>
+  </v-row>
+  <v-row v-else>
+    <v-col>
+      <v-card
+        style="text-align: center"
+        text="Login"
+        href="/login"
+      ></v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import { getCurrentUser, signOut } from 'aws-amplify/auth'
+import { Authenticator } from "@aws-amplify/ui-vue";
+
 export default {
-  name: "Links"
+  name: "Links",
+  data() {
+    return {
+      user: null
+    }
+  },
+  methods: {
+    async signUserOut() {
+      await signOut();
+      this.user = null;
+    }
+  },
+  async activated() {
+    this.user = await getCurrentUser();
+  },
+  async mounted() {
+    try {
+      this.user = await getCurrentUser();
+    } catch {
+    }
+  },
+  components: { Authenticator },
 }
 </script>
 
 <style scoped>
-
 </style>
