@@ -5,78 +5,11 @@
     </v-col>
   </v-row>
   <v-row>
-    <v-col>
+    <v-col v-for="item in interests">
       <v-card
-        title="Camping"
-        href="https://www.fresno.gov/parks/campfresno/"
-        image="https://bjamin.rest/img/links/camping.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Biking"
-        style="color: black"
-        href="https://www.fs.usda.gov/recarea/sierra/recreation/hiking/recarea/?recid=45894&actid=51"
-        image="https://bjamin.rest/img/links/biking.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Skateboarding"
-        style="color: black"
-        href="https://www.youtube.com/watch?v=oesiPltzs0I"
-        image="https://bjamin.rest/img/links/skateboarding.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Slacklining"
-        href="https://en.wikipedia.org/wiki/Slacklining"
-        image="https://bjamin.rest/img/links/slack.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Bouldering"
-        style="color: black"
-        href="https://en.wikipedia.org/wiki/Bouldering"
-        image="https://bjamin.rest/img/links/bouldering.jpeg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Led Zepplin"
-        href="https://www.youtube.com/watch?v=nhVfuacsLDw"
-        image="https://bjamin.rest/img/links/led-zepplin.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        title="Monty Python"
-        href="https://www.youtube.com/watch?v=RbTaP0_Galg"
-        image="https://bjamin.rest/img/links/monty-python.jpg"
-        height="175"
-        width="175"
-      />
-    </v-col>
-    <v-col>
-      <v-card
-        subtitle="Instagram"
-        href="https://www.instagram.com/benjamin.jammin/"
-        prepend-icon="mdi-instagram"
-        image="https://bjamin.rest/img/links/instagram.jpg"
+        :title="item.title"
+        :href="item.href"
+        :image="item.image"
         height="175"
         width="175"
       />
@@ -120,14 +53,16 @@
 
 <script>
 import { getCurrentUser, signOut } from 'aws-amplify/auth'
+import { getUrl } from "aws-amplify/storage";
 import { Authenticator } from "@aws-amplify/ui-vue";
 
 export default {
   name: "Links",
   data() {
     return {
-      user: null
-    }
+      user: null,
+      interests: [],
+    };
   },
   methods: {
     async signUserOut() {
@@ -143,6 +78,59 @@ export default {
       this.user = await getCurrentUser();
     } catch {
     }
+
+    const interests = [
+      {
+        title: "Camping",
+        href: "https://www.fresno.gov/parks/campfresno/",
+        image: "public/img/links/camping.jpg"
+      },
+      {
+        title: "Biking",
+        style: "color: black",
+        href: "https://www.fs.usda.gov/recarea/sierra/recreation/hiking/recarea/?recid=45894&actid=51",
+        image: "public/img/links/biking.jpg",
+      },
+      {
+        title: "Skateboarding",
+        style: "color: black",
+        href: "https://www.youtube.com/watch?v=oesiPltzs0I",
+        image: "public/img/links/skateboarding.jpg",
+      },
+      {
+        title: "Slacklining",
+        href: "https://en.wikipedia.org/wiki/Slacklining",
+        image: "public/img/links/slack.jpg",
+      },
+      {
+        title: "Led Zepplin",
+        href: "https://www.youtube.com/watch?v=nhVfuacsLDw",
+        image: "public/img/links/led-zepplin.jpg",
+      },
+      {
+        title: "Bouldering",
+        style: "color: black",
+        href: "https://en.wikipedia.org/wiki/Bouldering",
+        image: "public/img/links/bouldering.jpeg",
+      },
+      {
+        title: "Monty Python",
+        href: "https://www.youtube.com/watch?v=RbTaP0_Galg",
+        image: "public/img/links/monty-python.jpg",
+      },
+      {
+        subtitle: "Instagram",
+        href: "https://www.instagram.com/benjamin.jammin/",
+        prependIcon: "mdi-instagram",
+        image: "public/img/links/instagram.jpg",
+      },
+    ];
+
+    this.interests = await Promise.all(interests.map(async (interest) => {
+      interest.image = (await getUrl({ path: interest.image })).url.href;
+      return interest;
+    }));
+
   },
   components: { Authenticator },
 }

@@ -106,7 +106,6 @@ export default {
       event.image = (await getUrl({path: event.image})).url.href;
     }));
 
-    console.log(events)
     this.timelineEvents = events;
   }
 }
