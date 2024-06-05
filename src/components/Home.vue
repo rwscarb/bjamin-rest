@@ -38,10 +38,6 @@ export default {
       selectedEvent: '',
     };
   },
-  computed: {
-  },
-  methods: {
-  },
   components: {
     Bio,
     Photos,
@@ -49,3 +45,42 @@ export default {
   },
 }
 </script>
+
+<style lang="less">
+[data-amplify-authenticator] {
+  .amplify-field__show-password .amplify-icon {
+    width: 1em;
+    height: 1em;
+  }
+  .amplify-alert {
+    margin-top: 1em;
+    .amplify-icon {
+      display: none;
+    }
+  }
+  input {
+    border: 1px solid #ccc;
+    padding: .25em;
+    margin: .25em 0;
+  }
+  .amplify-tabs__list {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .amplify-authenticator__column {
+    padding: .5em;
+  }
+  .amplify-button--primary {
+    margin-top: .25em;
+    border-style: solid;
+    padding: .25em;
+  }
+  .amplify-select__icon {
+    display: none;
+  }
+  footer {
+    text-align: center;
+  }
+}
+</style>

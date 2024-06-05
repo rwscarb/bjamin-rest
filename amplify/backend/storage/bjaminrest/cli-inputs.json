@@ -1,0 +1,13 @@
+{
+  "resourceName": "bjaminrest",
+  "policyUUID": "c7fe3cfb",
+  "bucketName": "bjaminrest",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "S3Triggere1c83dd8",
+  "groupAccess": {}
+}
