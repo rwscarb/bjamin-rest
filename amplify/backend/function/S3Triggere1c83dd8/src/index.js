@@ -4,13 +4,6 @@ exports.handler = async function (event) {
 
   console.log('Received S3 event:', JSON.stringify(event, null, 2));
 
-  if (!event.request.userAttributes['cognito:groups'] || !event.request.userAttributes['cognito:groups'].includes('uploaders')) {
-    return {
-      statusCode: 403,
-      body: JSON.stringify('You are not authorized to upload images.')
-    };
-  }
-
   const s3 = new AWS.S3();
   const bucket = event.Records[0].s3.bucket.name;
   const key = event.Records[0].s3.object.key;

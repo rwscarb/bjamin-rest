@@ -87,13 +87,11 @@ export default {
       },
       {
         title: "Biking",
-        style: "color: black",
         href: "https://www.fs.usda.gov/recarea/sierra/recreation/hiking/recarea/?recid=45894&actid=51",
         image: "public/img/links/biking.jpg",
       },
       {
         title: "Skateboarding",
-        style: "color: black",
         href: "https://www.youtube.com/watch?v=oesiPltzs0I",
         image: "public/img/links/skateboarding.jpg",
       },
@@ -109,7 +107,6 @@ export default {
       },
       {
         title: "Bouldering",
-        style: "color: black",
         href: "https://en.wikipedia.org/wiki/Bouldering",
         image: "public/img/links/bouldering.jpeg",
       },

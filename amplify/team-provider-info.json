@@ -48,7 +48,7 @@
       "function": {
         "S3Triggere1c83dd8": {
           "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
-          "s3Key": "amplify-builds/S3Triggere1c83dd8-6e494e526b6c49663132-build.zip"
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-4f7759795033666e5975-build.zip"
         }
       },
       "hosting": {
