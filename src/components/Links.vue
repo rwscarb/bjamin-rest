@@ -7,9 +7,7 @@
   <v-row>
     <v-col v-for="item in interests">
       <v-card
-        :title="item.title"
-        :href="item.href"
-        :image="item.image"
+        v-bind="item"
         height="175"
         width="175"
       />
@@ -87,11 +85,13 @@ export default {
       },
       {
         title: "Biking",
+        style: "color: black",
         href: "https://www.fs.usda.gov/recarea/sierra/recreation/hiking/recarea/?recid=45894&actid=51",
         image: "public/img/links/biking.jpg",
       },
       {
         title: "Skateboarding",
+        style: "color: black",
         href: "https://www.youtube.com/watch?v=oesiPltzs0I",
         image: "public/img/links/skateboarding.jpg",
       },
@@ -108,6 +108,7 @@ export default {
       {
         title: "Bouldering",
         href: "https://en.wikipedia.org/wiki/Bouldering",
+        style: "color: black",
         image: "public/img/links/bouldering.jpeg",
       },
       {
