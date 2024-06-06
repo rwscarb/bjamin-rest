@@ -23,7 +23,9 @@
       <v-card>
         <v-card-subtitle class="float-right text-right" style="margin-top: .5em">
           <div>by {{ item.user || 'Unknown' }}</div>
-          <div :title="item.createdAt">{{ item.createdAt.split('T')[0] }}</div>
+          <div :title="getDateTime(item.createdAt).toLocaleTimeString()">
+            {{ getDateTime(item.createdAt).toLocaleDateString() }}
+          </div>
         </v-card-subtitle>
         <v-card-title>{{ item.message }}</v-card-title>
       </v-card>
@@ -48,6 +50,9 @@ export default {
     comments: [],
   }),
   methods: {
+    getDateTime(date) {
+      return new Date(date)
+    },
     async submitComment() {
       const res = await client.graphql({
         query: createComment,
