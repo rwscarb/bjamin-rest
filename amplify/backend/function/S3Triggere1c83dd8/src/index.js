@@ -1,5 +1,7 @@
 const AWS = require('aws-sdk');
 
+const targetBucketPrefix = 'public/img/carousel/';
+
 exports.handler = async function (event) {
 
   console.log('Received S3 event:', JSON.stringify(event, null, 2));
@@ -7,7 +9,7 @@ exports.handler = async function (event) {
   const s3 = new AWS.S3();
   const bucket = event.Records[0].s3.bucket.name;
   const key = event.Records[0].s3.object.key;
-  const files = await s3.listObjectsV2({Bucket: bucket, Prefix: 'public/img/grid/'}).promise();
+  const files = await s3.listObjectsV2({Bucket: bucket, Prefix: targetBucketPrefix}).promise();
   const objects = files.Contents;
   let newIndex = 1;
   if (objects.length) {
@@ -15,7 +17,7 @@ exports.handler = async function (event) {
     newIndex = parseInt(lastFile.Key.split('/').pop().split('.')[0]) + 1;
   }
   const paddedIndex = String(newIndex).padStart(3, '0');
-  const destKey = `public/img/grid/${paddedIndex}.jpg`;
+  const destKey = `${targetBucketPrefix}/${paddedIndex}.jpg`;
 
   const getObjectParams = {
     Bucket: bucket,

@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "bjaminresta5fa984b_identitypool_a5fa984b",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "bjamina5fa984b",
     "userPoolName": "bjaminresta5fa984b_userpool_a5fa984b",
     "autoVerifiedAttributes": [
@@ -40,9 +40,25 @@
     "usernameAttributes": [
       "email, phone_number"
     ],
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+      "uploaders"
+    ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": []
   }
 }

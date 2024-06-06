@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamoabe449f6",
+  "tableName": "comments",
+  "partitionKey": {
+    "fieldName": "timestamp",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

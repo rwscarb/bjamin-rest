@@ -5,7 +5,7 @@
         <v-card
           style="text-align: center"
           text="Sign Out"
-          :href="signUserOut"
+          @click="signUserOut"
         ></v-card>
       </v-col>
     </v-row>

@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "bjaminrest",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authbjaminresta5fa984b",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2024-06-06T11:01:02.956Z"
+}

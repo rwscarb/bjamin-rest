@@ -9,23 +9,33 @@
       "UnauthRoleName": "amplify-bjaminrest-dev-96601-unauthRole",
       "StackName": "amplify-bjaminrest-dev-96601",
       "StackId": "arn:aws:cloudformation:us-west-2:713752064839:stack/amplify-bjaminrest-dev-96601/13bfbaa0-22d7-11ef-9dda-02993f701bb3",
-      "AmplifyAppId": "d6y6squcjq5vm"
+      "AmplifyAppId": "d6y6squcjq5vm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-bjaminrest-dev-96601-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
-        "bjaminresta5fa984b": {}
+        "bjaminresta5fa984b": {},
+        "userPoolGroups": {}
       },
       "function": {
         "S3Triggere1c83dd8": {
           "deploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
-          "s3Key": "amplify-builds/S3Triggere1c83dd8-61683876306b6c525449-build.zip"
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-5333706d773769356e4e-build.zip"
+        },
+        "comments": {
+          "deploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
+          "s3Key": "amplify-builds/comments-2b567243394464346742-build.zip"
         }
       },
       "storage": {
-        "bjaminrest": {}
+        "bjaminrest": {},
+        "dynamoabe449f6": {}
       },
       "hosting": {
         "S3AndCloudFront": {}
+      },
+      "api": {
+        "bjaminrest": {}
       }
     }
   },
@@ -43,18 +53,28 @@
     },
     "categories": {
       "auth": {
-        "bjaminresta5fa984b": {}
+        "bjaminresta5fa984b": {},
+        "userPoolGroups": {}
       },
       "function": {
         "S3Triggere1c83dd8": {
           "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
-          "s3Key": "amplify-builds/S3Triggere1c83dd8-4f7759795033666e5975-build.zip"
-        }
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-5333706d773769356e4e-build.zip"
+        },
+        "comments": {
+          "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
+          "s3Key": "amplify-builds/comments-37364f43703368653861-build.zip"
+        },
+        "dynamoabe449f6": {}
       },
       "hosting": {
         "S3AndCloudFront": {}
       },
       "storage": {
+        "bjaminrest": {},
+        "dynamoabe449f6": {}
+      },
+      "api": {
         "bjaminrest": {}
       }
     }

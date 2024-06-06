@@ -1,4 +1,10 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "bjaminrest": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string"
+    }
+  },
   "auth": {
     "bjaminresta5fa984b": {
       "AppClientID": "string",
@@ -8,10 +14,20 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
+    },
+    "userPoolGroups": {
+      "uploadersGroupRole": "string"
     }
   },
   "function": {
     "S3Triggere1c83dd8": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "comments": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -35,6 +51,14 @@ export type AmplifyDependentResourcesAttributes = {
     "bjaminrest": {
       "BucketName": "string",
       "Region": "string"
+    },
+    "dynamoabe449f6": {
+      "Arn": "string",
+      "Name": "string",
+      "PartitionKeyName": "string",
+      "PartitionKeyType": "string",
+      "Region": "string",
+      "StreamArn": "string"
     }
   }
 }
