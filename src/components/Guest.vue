@@ -59,6 +59,7 @@ export default {
         },
       });
       this.comments.unshift(res.data.createComment);
+      this.name = '';
       this.comment = '';
     }
   },
