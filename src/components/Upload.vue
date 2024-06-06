@@ -2,15 +2,19 @@
   <authenticator>
   <v-row>
     <v-col cols="12">
-      <v-file-input @change="handleFileChange" />
+      <v-file-input @change="handleFileChange" :disabled="disabled"/>
     </v-col>
   </v-row>
   <v-row align-content="space-evenly">
     <v-col style="text-align: center">
-      <v-btn @click.prevent="uploadFile('grid')">Upload to Grid</v-btn>
+      <v-btn @click.prevent="uploadFile('grid')" :disabled="disabled">
+        Upload to Grid
+      </v-btn>
     </v-col>
     <v-col style="text-align: center">
-      <v-btn @click.prevent="uploadFile('carousel')">Upload to Carousel</v-btn>
+      <v-btn @click.prevent="uploadFile('carousel')" :disabled="disabled">
+        Upload to Carousel
+      </v-btn>
     </v-col>
   </v-row>
   </authenticator>
@@ -23,7 +27,8 @@ import { Authenticator } from "@aws-amplify/ui-vue";
 export default {
   data() {
     return {
-      file: null
+      file: null,
+      disabled: false,
     }
   },
   methods: {
@@ -32,6 +37,8 @@ export default {
     },
     async uploadFile(dest) {
       if (!this.file) return
+
+      this.disabled = true;
 
       await uploadData({
         path: `uploads/images/${dest}/${this.file.name}`,

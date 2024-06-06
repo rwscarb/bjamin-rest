@@ -20,11 +20,7 @@
       "function": {
         "S3Triggere1c83dd8": {
           "deploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
-          "s3Key": "amplify-builds/S3Triggere1c83dd8-5333706d773769356e4e-build.zip"
-        },
-        "comments": {
-          "deploymentBucketName": "amplify-bjaminrest-dev-96601-deployment",
-          "s3Key": "amplify-builds/comments-2b567243394464346742-build.zip"
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-4d3935457937327a442f-build.zip"
         }
       },
       "storage": {
@@ -59,7 +55,7 @@
       "function": {
         "S3Triggere1c83dd8": {
           "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
-          "s3Key": "amplify-builds/S3Triggere1c83dd8-5333706d773769356e4e-build.zip"
+          "s3Key": "amplify-builds/S3Triggere1c83dd8-4d3935457937327a442f-build.zip"
         },
         "dynamoabe449f6": {}
       },
