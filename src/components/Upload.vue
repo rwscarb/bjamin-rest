@@ -1,9 +1,16 @@
 <template>
   <authenticator>
   <v-row>
-    <v-col>
+    <v-col cols="12">
       <v-file-input @change="handleFileChange" />
-      <v-btn @click.prevent="uploadFile" class="float-right">Upload</v-btn>
+    </v-col>
+  </v-row>
+  <v-row align-content="space-evenly">
+    <v-col style="text-align: center">
+      <v-btn @click.prevent="uploadFile('grid')">Upload to Grid</v-btn>
+    </v-col>
+    <v-col style="text-align: center">
+      <v-btn @click.prevent="uploadFile('carousel')">Upload to Carousel</v-btn>
     </v-col>
   </v-row>
   </authenticator>
@@ -23,11 +30,11 @@ export default {
     handleFileChange(event) {
       this.file = event.target.files[0]
     },
-    async uploadFile() {
+    async uploadFile(dest) {
       if (!this.file) return
 
       await uploadData({
-        path: `uploads/images/${this.file.name}`,
+        path: `uploads/images/${dest}/${this.file.name}`,
         data: this.file,
         options: {
           contentType: 'image/jpeg',
@@ -35,7 +42,9 @@ export default {
         }
       }).result;
 
-      this.$router.push({ name: 'photos' })
+      setTimeout(() => {
+        this.$router.push({ name: 'photos' })
+      }, 3000)
     }
   },
   components: { Authenticator },
