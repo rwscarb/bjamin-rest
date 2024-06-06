@@ -61,10 +61,6 @@
           "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
           "s3Key": "amplify-builds/S3Triggere1c83dd8-5333706d773769356e4e-build.zip"
         },
-        "comments": {
-          "deploymentBucketName": "amplify-bjaminrest-prod-4fe26-deployment",
-          "s3Key": "amplify-builds/comments-37364f43703368653861-build.zip"
-        },
         "dynamoabe449f6": {}
       },
       "hosting": {
