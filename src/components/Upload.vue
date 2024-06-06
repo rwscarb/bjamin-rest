@@ -51,7 +51,7 @@ export default {
 
       setTimeout(() => {
         this.$router.push({ name: 'photos' })
-      }, 3000)
+      }, 2000)
     }
   },
   components: { Authenticator },

@@ -2,21 +2,28 @@
   <v-row>
     <v-col>
       <h2 id="comment">Guest Book</h2>
-      <v-textarea
-        label="Comment"
-        v-model="comment"
-        outlined
-        rows="3"
-      ></v-textarea>
-      <v-btn @click="submitComment">Submit</v-btn>
+      <v-form>
+        <v-text-field
+          label="Name"
+          v-model="name"
+          outlined
+        ></v-text-field>
+        <v-textarea
+          label="Comment"
+          v-model="comment"
+          outlined
+          rows="3"
+        ></v-textarea>
+        <v-btn @click="submitComment" :disabled="name === '' || comment === ''">Submit</v-btn>
+      </v-form>
     </v-col>
   </v-row>
   <v-row v-for="item in comments">
     <v-col>
       <v-card>
-        <v-card-subtitle class="float-right" style="margin-top: .5em">
-          {{ item.user || 'Anonymous' }}
-         <span :title="item.createdAt">{{ item.createdAt.split('T')[0] }}</span>
+        <v-card-subtitle class="float-right text-right" style="margin-top: .5em">
+          <div>by {{ item.user || 'Unknown' }}</div>
+          <div :title="item.createdAt">{{ item.createdAt.split('T')[0] }}</div>
         </v-card-subtitle>
         <v-card-title>{{ item.message }}</v-card-title>
       </v-card>
@@ -36,6 +43,7 @@ const client = generateClient({
 export default {
   name: "Guest",
   data: () => ({
+    name: '',
     comment: '',
     comments: [],
   }),
@@ -46,6 +54,7 @@ export default {
         variables: {
           input: {
             message: this.comment,
+            user: this.name,
           },
         },
       });
